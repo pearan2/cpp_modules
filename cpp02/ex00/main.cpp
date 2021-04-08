@@ -17,7 +17,7 @@ int		main()
 	Fixed a;   // 기본생성자
 	Fixed b( a );  //  복사 생성자
 	Fixed c;
-	Fixed d = a;
+	Fixed d = a;  //  복사 생성자
 
 	c = b;  // 할당연산자
 
