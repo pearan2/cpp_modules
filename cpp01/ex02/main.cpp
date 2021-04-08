@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:51:32 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 15:30:03 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 16:53:39 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			main()
 	ZombieEvent zombieEvent;
 	Zombie		*zombie;
 
-	srand(time(NULL));
+	srand(clock());
 
 	zombie = new Zombie("newType", "honlee");
 	zombie->announce();

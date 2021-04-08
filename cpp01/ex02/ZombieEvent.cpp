@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:51:36 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 15:33:20 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 17:16:36 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 std::string		getRandomName()
 {
-	std::string		ret;
+	std::string		ret = "";
 
 	for (int i=0; i<10; i++)
 		ret += ((rand() % (126 - 33 + 1)) + 33);
