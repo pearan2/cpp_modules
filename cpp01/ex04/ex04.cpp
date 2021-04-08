@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 17:24:04 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 17:27:14 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 20:43:59 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int		main()
 	std::string &str_ref = str;
 
 	std::cout << "pointer : " << *str_ptr << std::endl;
-	std::cout << "reference : " << str << std::endl;
+	std::cout << "reference : " << str_ref << std::endl;
 }
