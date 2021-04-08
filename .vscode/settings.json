@@ -46,6 +46,11 @@
 		"typeinfo": "cpp",
 		"unordered_map": "cpp",
 		"vector": "cpp",
-		"iosfwd": "cpp"
+		"iosfwd": "cpp",
+		"chrono": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"ratio": "cpp",
+		"stack": "cpp"
 	}
 }
