@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   ex01.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:42:52 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 14:14:12 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/08 14:44:34 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/08 14:48:29 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_HPP
-# define PONY_HPP
+#include <string>
+#include <iostream>
 
-# include <iostream>
-# include <string>
-# include <algorithm>
-
-class Pony
+void	memoryLeak()
 {
-	private :
-		std::string name;
-	public :
-		//Constructor
-		Pony();
-		Pony(std::string name);
-		
-		//Destroyer
-		~Pony();
+	std::string		*panther = new std::string("String panther");
 
-		//setter
-		void		setName(std::string name);
-		//getter
-		std::string getName(void);
+	std::cout << *panther << std::endl;
 
-		//
-		void		sayName(void);
-};
+	delete (panther);
+}
 
-#endif
+int		main()
+{
+	memoryLeak();
+
+	while (1)
+	{
+		;
+	}
+	return (0);
+}

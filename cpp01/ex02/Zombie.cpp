@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:46:47 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 14:01:50 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/08 14:50:51 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/08 15:32:52 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Zombie.hpp"
 
-Pony::Pony(void)
+Zombie::Zombie()
 {
-	this->name = "basic pony";
+	this->name = "basic Zombie";
+	this->type = "basic";
 }
 
-Pony::Pony(std::string name)
+Zombie::Zombie(std::string type, std::string name)
 {
+	this->type = type;
 	this->name = name;
 }
 
-Pony::~Pony()
+Zombie::~Zombie()
 {
-	std::cout << this->name << " destroyed" << std::endl;
+	std::cout << "<" << this->name << " (" << this->type << ")> destroyed" << std::endl;
 }
 
-std::string Pony::getName(void)
+void		Zombie::announce()
 {
-	return (this->name);
-}
-
-void	Pony::setName(std::string name)
-{
-	this->name = name;
-}
-
-void	Pony::sayName(void)
-{
-	std::cout << "Hi !! I'm " << this->name << std::endl;
+	std::cout << "<" << this->name << " (" << this->type << ")> c...p..p..noooooooo...jam......" << std::endl;
 }

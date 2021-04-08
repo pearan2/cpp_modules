@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:42:52 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 14:14:12 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/08 14:51:38 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/08 15:15:19 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_HPP
-# define PONY_HPP
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
 
-# include <iostream>
-# include <string>
-# include <algorithm>
+# include "Zombie.hpp"
+# include <stdlib.h>
+# include <time.h>
 
-class Pony
+class ZombieEvent
 {
-	private :
-		std::string name;
+	private : 
+		std::string type;
+
 	public :
-		//Constructor
-		Pony();
-		Pony(std::string name);
-		
-		//Destroyer
-		~Pony();
+		ZombieEvent();
+		~ZombieEvent();
 
-		//setter
-		void		setName(std::string name);
-		//getter
-		std::string getName(void);
-
-		//
-		void		sayName(void);
+		void setZombieType(std::string type);
+		Zombie* newZombie(std::string name);
+		Zombie* randomChump();
 };
 
 #endif

@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.hpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 23:42:52 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 14:14:12 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/08 14:51:00 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/08 15:03:14 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PONY_HPP
-# define PONY_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-# include <iostream>
 # include <string>
-# include <algorithm>
+# include <iostream>
 
-class Pony
+class Zombie
 {
 	private :
+		std::string type;
 		std::string name;
-	public :
-		//Constructor
-		Pony();
-		Pony(std::string name);
-		
-		//Destroyer
-		~Pony();
+	public	:
+		Zombie();
+		Zombie(std::string type, std::string name);
 
-		//setter
-		void		setName(std::string name);
-		//getter
-		std::string getName(void);
+		~Zombie();
 
-		//
-		void		sayName(void);
+		void announce(void);
 };
 
 #endif
