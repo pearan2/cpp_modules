@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:30:56 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/07 23:23:11 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 13:28:08 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,77 +23,85 @@ int		get_next_line(std::string &input)
 	return (0);
 }
 
-Contact *make_contact(int idx)
+int		make_contact(int idx, Contact &ret)
 {
-	Contact *ret = new Contact(idx);
+	std::string input;
 
-	ret->is_empty = false;
-	
+	ret.setIndex(idx);
 	std::cout << "first name > ";
-	if (get_next_line(ret->first_name) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setFirstName(input);
 
 	std::cout << "last name > ";
-	if (get_next_line(ret->last_name) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setLastName(input);
 
 	std::cout << "nick name > ";
-	if (get_next_line(ret->nick_name) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setNickName(input);
 
 	std::cout << "login > ";
-	if (get_next_line(ret->login) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setLogin(input);
 
 	std::cout << "postal address > ";
-	if (get_next_line(ret->postal_address) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setPostalAddress(input);
 
 	std::cout << "email address > ";
-	if (get_next_line(ret->email_address) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setEmailAddress(input);
 
 	std::cout << "phone number > ";
-	if (get_next_line(ret->phone_number) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setPhoneNumber(input);
 
 	std::cout << "birthday date > ";
-	if (get_next_line(ret->birthday_date) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setBirthdayDate(input);
 
 	std::cout << "favorite meal > ";
-	if (get_next_line(ret->favorite_meal) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setFavoriteMeal(input);
 
 	std::cout << "underwear color > ";
-	if (get_next_line(ret->underwear_color) != 0)
-		return (0);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setUnderwearColor(input);
 
 	std::cout << "darkest secret > ";
-	if (get_next_line(ret->darkest_secret) != 0)
-		return (0);
-	return (ret);
+	if (get_next_line(input) != 0)
+		return (1);
+	ret.setDarkestSecret(input);
+
+	return (0);
 }
 
 int		convert_to_int(std::string str)
 {
-	int		ret;
+	int					ret;
+	std::stringstream	toInt(str);
 
-	try
-	{
-		ret = std::stoi(str);
-	}
-	catch(const std::exception& e)
-	{
-		return (-1);
-	}
-	return (ret);
+	ret = -1;
+	toInt >> ret;
+	if (!toInt.fail())
+		return (ret);
+	return (-1);
 }
 
 int		main()
 {
 	std::string			order;
-	Contact				*book[8];
+	Contact				book[8];
 	int					idx;
 
 	idx = -1;
@@ -110,8 +118,7 @@ int		main()
 			else
 			{
 				idx++;
-				book[idx] = make_contact(idx);
-				if (book[idx] == NULL)
+				if (make_contact(idx, book[idx]) != 0)
 					return (0);
 			}
 		}
@@ -125,7 +132,7 @@ int		main()
 				std::cout << "--------idx-first name--last name--nick name-" << std::endl;;
 				for (int i = 0; i <= idx; i++)
 				{
-					book[i]->print();
+					book[i].print();
 				}
 				std::cout << "---------------------------------------------" << std::endl;
 			}
@@ -134,7 +141,7 @@ int		main()
 				return (0);
 			idx_in = convert_to_int(input);
 			if (idx != -1 && idx_in <= idx && idx_in >= 0)
-				book[idx_in]->printAll();		
+				book[idx_in].printAll();		
 			else
 				std::cout << "please check your input" << std::endl;
 		}

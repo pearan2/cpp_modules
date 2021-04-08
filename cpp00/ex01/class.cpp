@@ -6,11 +6,19 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 20:44:45 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/07 23:29:17 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 13:21:38 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "class.hpp"
+
+std::string		to_str(int idx)
+{
+	std::stringstream toStr;
+	toStr << idx;
+	
+	return (toStr.str());
+}
 
 std::string		to_ten(std::string str)
 {
@@ -43,7 +51,7 @@ void	Contact::print()
 	{
 		std::cout.setf(std::ios::right);
 		std::cout << '|';
-		std::cout << std::setw(10) << to_ten(std::to_string(this->index));
+		std::cout << std::setw(10) << to_ten(to_str(this->index));
 		std::cout << '|';
 		std::cout << std::setw(10) << to_ten(this->first_name);
 		std::cout << '|';
@@ -71,4 +79,125 @@ void	Contact::printAll()
 	std::cout << std::setw(20) << "favorite meal > " << this->favorite_meal << std::endl;
 	std::cout << std::setw(20) << "underwear color > " << this->underwear_color << std::endl;
 	std::cout << std::setw(20) << "darkest secret > " << this->darkest_secret << std::endl;
+}
+
+void Contact::setIndex(int idx)
+{
+	this->index = idx;
+	this->is_empty = false;
+}
+
+void Contact::setFirstName(std::string first_name)
+{
+	this->first_name = first_name;
+}
+
+void Contact::setLastName(std::string last_name)
+{
+	this->last_name = last_name;
+}
+
+void Contact::setNickName(std::string nick_name)
+{
+	this->nick_name = nick_name;
+}
+
+void Contact::setLogin(std::string login)
+{
+	this->login = login;
+}
+
+void Contact::setPostalAddress(std::string postal_address)
+{
+	this->postal_address = postal_address;
+}
+
+void Contact::setEmailAddress(std::string email_address)
+{
+	this->email_address = email_address;
+}
+
+void Contact::setPhoneNumber(std::string phone_number)
+{
+	this->phone_number = phone_number;
+}
+
+void Contact::setBirthdayDate(std::string birthday_date)
+{
+	this->birthday_date = birthday_date;
+}
+
+void Contact::setFavoriteMeal(std::string favorite_meal)
+{
+	this->favorite_meal = favorite_meal;
+}
+
+void Contact::setUnderwearColor(std::string underwear_color)
+{
+	this->underwear_color = underwear_color;
+}
+
+void Contact::setDarkestSecret(std::string darkest_secret)
+{
+	this->darkest_secret = darkest_secret;
+}
+
+int			Contact::getIndex(void)
+{
+	return (this->index);
+}
+
+std::string Contact::getFirstName(void)
+{
+	return (this->first_name);
+}
+
+std::string Contact::getLastName(void)
+{
+	return (this->last_name);
+}
+
+std::string Contact::getNickName(void)
+{
+	return (this->nick_name);
+}
+
+std::string Contact::getLogin(void)
+{
+	return (this->login);
+}
+
+std::string Contact::getPostalAddress(void)
+{
+	return (this->postal_address);
+}
+
+std::string Contact::getEmailAddress(void)
+{
+	return (this->email_address);
+}
+
+std::string Contact::getPhoneNumber(void)
+{
+	return (this->phone_number);
+}
+
+std::string Contact::getBirthdayDate(void)
+{
+	return (this->birthday_date);
+}
+
+std::string Contact::getFavoriteMeal(void)
+{
+	return (this->favorite_meal);
+}
+
+std::string Contact::getUnderwearColor(void)
+{
+	return (this->underwear_color);
+}
+
+std::string Contact::getDarkestSecret(void)
+{
+	return (this->darkest_secret);
 }
