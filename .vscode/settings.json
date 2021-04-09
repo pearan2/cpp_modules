@@ -51,6 +51,17 @@
 		"deque": "cpp",
 		"fstream": "cpp",
 		"ratio": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"atomic": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"cstdio": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"string_view": "cpp",
+		"system_error": "cpp",
+		"utility": "cpp"
 	}
 }

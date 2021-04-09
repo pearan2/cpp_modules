@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 00:08:52 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/08 21:28:58 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/08 21:28:24 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ FragTrap &FragTrap::operator=(const FragTrap& origin)
 	this->meleeAttackDamage = origin.meleeAttackDamage;
 	this->rangedAttackDamage = origin.rangedAttackDamage;
 	this->armorDamageReduction = origin.armorDamageReduction;
-
 	std::cout << "FragTrap Assignation operator called" << std::endl;
 
 	return (*this);	
