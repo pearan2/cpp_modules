@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 20:56:12 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/12 22:19:48 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 04:41:23 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int main()
 //	me->attack(b);
 //	std::cout << *me;
 //	std::cout << b->getType() << " remain HP : "<< b->getHP() << std::endl;
-
-	
 
 	me->attack(c);
 	std::cout << *me;

@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:19:35 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 16:19:25 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 04:43:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main(void)
 	}
 	delete vlc;
 
-	std::cout << "---" << std::endl;
 
 	Squad squad;
 

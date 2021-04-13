@@ -6,13 +6,14 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/12 12:18:03 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/14 04:35:31 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		\
 					Sorcerer.cpp\
-					Poen.cpp\
+					Peon.cpp\
+					Grunt.cpp\
 					Victim.cpp\
 					main.cpp\
 
