@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 22:48:43 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/12 23:28:34 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/13 16:18:45 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,12 @@ Squad& Squad::operator=(const Squad& origin)
 
 Squad::~Squad()
 {
+	std::cout << "destructor called | count : " << this->count << std::endl;
 	for(int i=0; i<this->count; i++)
+	{
+		std::cout << i << " deleted >> ";
 		delete this->marines[i];
+	}
 	delete this->marines;
 }
 
@@ -60,21 +64,23 @@ ISpaceMarine	*Squad::getUnit(int idx) const
 
 int				Squad::push(ISpaceMarine *marine)
 {
+	if (marine == NULL)
+		return (this->count);
+	for (int i=0; i<this->count; i++)
+		if (marine == this->marines[i])
+			return (this->count);
+
 	ISpaceMarine	**temp;
 
-	if (this->marines == NULL)
+	temp = new ISpaceMarine* [this->count + 1];
+	if (this->count != 0)
 	{
-		this->marines = new ISpaceMarine*[1];
-		this->marines[0] = marine;
-	}
-	else
-	{
-		temp = new ISpaceMarine*[++this->count];
-		for(int i=0; i<this->count - 1; i++)
+		for (int i=0; i<this->count; i++)
 			temp[i] = this->marines[i];
-		temp[this->count - 1] = marine;
-		delete this->marines;
-		this->marines = temp;
 	}
+	temp[this->count] = marine;
+	delete (this->marines);
+	this->marines = temp;
+	this->count += 1;
 	return (this->count);
 }
