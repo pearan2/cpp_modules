@@ -6,11 +6,16 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/13 16:22:32 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/13 20:50:34 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		\
+					AMateria.cpp\
+					Character.cpp\
+					MateriaSource.cpp\
+					Ice.cpp\
+					Cure.cpp\
 					main.cpp\
 
 NAME		=		a.out

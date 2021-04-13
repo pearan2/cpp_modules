@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:17:08 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 17:22:48 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/13 21:05:43 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 MateriaSource::MateriaSource()
 {
 	for (int i=0; i<4; i++)
-		this->amaterias[i] == NULL;
+		this->amaterias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &origin)
@@ -41,10 +41,38 @@ MateriaSource& MateriaSource::operator=(MateriaSource const &origin)
 		else
 			this->amaterias[i] = NULL;
 	}
+	return (*this);
 }
 
 MateriaSource::~MateriaSource()
 {
 	for (int i=0; i<4; i++)
 		delete this->amaterias[i];
+}
+
+void		MateriaSource::learnMateria(AMateria *ama)
+{
+	if (ama == NULL)
+		return ;
+	for (int i=0; i<4; i++)
+		if (this->amaterias[i] == ama)
+			return ;
+	for (int i=0; i<4; i++)
+	{
+		if (this->amaterias[i] == NULL)
+		{
+			this->amaterias[i] = ama;
+			return ;
+		}
+	}
+}
+
+AMateria* MateriaSource::createMateria(std::string const &type)
+{
+	for (int i=0; i<4; i++)
+	{
+		if (this->amaterias[i] != NULL && this->amaterias[i]->getType() == type)
+			return (this->amaterias[i]->clone());
+	}
+	return (NULL);
 }

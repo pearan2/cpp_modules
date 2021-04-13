@@ -6,11 +6,17 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 16:44:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 16:48:03 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/13 19:50:06 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
+AMateria::AMateria()
+{
+	this->type = "default";
+	this->xp = 0;
+}
 
 AMateria::AMateria(std::string const &type)
 {

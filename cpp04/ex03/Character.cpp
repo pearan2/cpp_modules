@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 16:52:10 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 17:09:09 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/13 21:15:16 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ Character& Character::operator=(Character const &origin)
 		else
 			this->inventory[i] = NULL;
 	}
+	return (*this);
 }
 
 Character::~Character()
@@ -82,14 +83,14 @@ void					Character::equip(AMateria *ama)
 
 void					Character::unequip(int idx)
 {
-	if (idx < 0 || idx > 4)
+	if (idx < 0 || idx > 3)
 		return ;
-	this->inventory[idx] == NULL;
+	this->inventory[idx] = NULL;
 }
 
 void					Character::use(int idx, ICharacter &target)
 {
-	if (idx < 0 || idx > 4 || this->inventory[idx] == NULL)
+	if (idx < 0 || idx > 3 || this->inventory[idx] == NULL)
 		return ;
 	this->inventory[idx]->use(target);
 }
