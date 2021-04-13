@@ -62,6 +62,7 @@
 		"random": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"filesystem": "cpp"
 	}
 }
