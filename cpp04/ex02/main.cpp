@@ -57,7 +57,7 @@ int main(void)
 		else
 			squad.getUnit(i)->meleeAttack();
 	}
-	std::cout << squad.getCount() << " -> " << squad.push(nullptr) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(NULL) << std::endl;
 	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS - 1)) << std::endl;
 	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS)) << std::endl;
 	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS + 1)) << std::endl;

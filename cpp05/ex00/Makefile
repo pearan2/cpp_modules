@@ -6,18 +6,16 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/12 12:18:03 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/13 23:37:59 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		\
-					Sorcerer.cpp\
-					Poen.cpp\
-					Victim.cpp\
+					Bureaucrat.cpp\
 					main.cpp\
 
 
-NAME		=		sorcerer
+NAME		=		a.out
 
 CC			=		clang++
 
