@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 04:59:26 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 17:38:39 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 22:20:15 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,14 @@ void	Form::beSigned(Bureaucrat const &bure)
 	this->bool_signed = true;
 }
 
+void Form::execute(Bureaucrat const &bure) const
+{
+	if (bure.getGrade() > this->getExecuteGrade())
+		throw Form::GradeTooLowException();
+	if (!this->isSigned())
+		throw Form::UnsignedFormException();
+}	
+
 std::ostream &operator<<(std::ostream &out, Form const &form)
 {
 	out << "(" << form.getName() << ")[" << ((form.isSigned()) ? "Signed" : "Unsigned")
@@ -109,3 +117,4 @@ std::ostream &operator<<(std::ostream &out, Form const &form)
 		<< form.getExecuteGrade() << ">";
 	return (out);
 }
+

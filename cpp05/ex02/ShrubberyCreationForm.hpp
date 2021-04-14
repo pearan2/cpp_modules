@@ -6,16 +6,16 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:40:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 18:05:25 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 22:02:43 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
 #include <sstream>
 #include <fstream>
+#include "Form.hpp"
 
 class ShrubberyCreationForm : public Form
 {
@@ -25,8 +25,8 @@ class ShrubberyCreationForm : public Form
 	public :
 		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(std::string const &name, std::string const &target);
-		ShrubberyCreationForm(ShrubberyCreationForm& const origin);
-		ShrubberyCreationForm& operator=(ShrubberyCreationForm& const origin);
+		ShrubberyCreationForm(ShrubberyCreationForm const &origin);
+		ShrubberyCreationForm& operator=(ShrubberyCreationForm const &origin);
 		virtual ~ShrubberyCreationForm();
 
 		class FileOpenException : public std::exception

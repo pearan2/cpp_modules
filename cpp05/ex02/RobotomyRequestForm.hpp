@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/14 20:42:59 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 21:24:57 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/14 20:46:45 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/14 21:25:01 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 #include "Form.hpp"
 
-class PresidentialPardonForm : public Form
+class RobotomyRequestForm : public Form
 {
 	private :
-		PresidentialPardonForm();
+		RobotomyRequestForm();
 	public :
-		PresidentialPardonForm(std::string const &target);
-		PresidentialPardonForm(std::string const &name, std::string const &target);
-		PresidentialPardonForm(PresidentialPardonForm const &origin);
-		PresidentialPardonForm& operator=(PresidentialPardonForm const &origin);
-		virtual ~PresidentialPardonForm();
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(std::string const &name, std::string const &target);
+		RobotomyRequestForm(RobotomyRequestForm const &origin);
+		RobotomyRequestForm& operator=(RobotomyRequestForm const &rigin);
+		virtual ~RobotomyRequestForm();
 
 		//overidding
 		void execute(Bureaucrat const &bure) const;

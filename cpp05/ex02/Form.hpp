@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 04:49:27 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 17:36:12 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 22:19:22 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ class Form
 		
 		bool isSigned() const;
 		void beSigned(Bureaucrat const &bure);
-		virtual void execute(Bureaucrat const &bure) const = 0;		
+		virtual void execute(Bureaucrat const &bure) const;
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &form);

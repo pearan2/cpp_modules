@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 23:16:29 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 05:18:27 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/14 21:01:09 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,29 @@ void		Bureaucrat::signForm(Form &form) const
 	form.beSigned(*this);
 }
 
+void Bureaucrat::executeForm(Form const &form) const
+{
+	if (!form.isSigned())
+	{
+		std::cout << *this << " cannot execute " << form
+				<< " because the form is unsigned." << std::endl;
+	}
+	else if (form.getExecuteGrade() < this->grade)
+	{
+		std::cout << *this << " cannot execute " << form
+				<< " because it's grade is too low." << std::endl;
+	}
+	else
+	{
+		std::cout << *this << " executes " << form << std::endl;
+	}
+	form.execute(*this);
+}
+
+
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bure)
 {
 	out << "Bureaucrat " << bure.getName() << " (Grade " << bure.getGrade() << ")";
 	return (out); 
 }
+
