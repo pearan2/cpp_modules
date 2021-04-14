@@ -6,15 +6,15 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/14 17:19:46 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/14 05:18:39 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		\
-					AssaultTerminator.cpp\
-					TacticalMarine.cpp\
-					Squad.cpp\
+					Bureaucrat.cpp\
+					Form.cpp\
 					main.cpp\
+
 
 NAME		=		a.out
 
