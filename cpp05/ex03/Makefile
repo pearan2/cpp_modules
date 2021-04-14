@@ -6,7 +6,7 @@
 #    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/14 22:42:55 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/14 23:42:25 by honlee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS		=		\
 					PresidentialPardonForm.cpp\
 					RobotomyRequestForm.cpp\
 					ShrubberyCreationForm.cpp\
+					Intern.cpp\
 					main.cpp\
 
 
