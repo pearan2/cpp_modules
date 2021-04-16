@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 22:22:54 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/15 22:32:16 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/15 20:25:25 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 class Converter
 {
 	private :
-		std::string		input;
 		char			c_val;
 		int				i_val;
 		float			f_val;
