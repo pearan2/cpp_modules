@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 21:06:53 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/17 18:05:52 by honlee           ###   ########seoul.kr  */
+/*   Updated: 2021/04/17 22:28:52 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ bool		Converter::input_checker(const char *str)
 						dot_next_flag = true;
 			}
 		}
-		if (f_flag == true && sstr[sstr.length() - 1] != 'f')
+		if (dot_flag == true && dot_next_flag == false)
 			return (false);
 		return (true);
 	}
@@ -116,31 +116,141 @@ Converter::~Converter()
 	
 }
 
-void Converter::print_float(int numZero, bool isDot)
+void Converter::print_float(std::string const &input, int from)
 {
-	std::cout << "float: " << this->f_val;
-	if (isDot == true)
-		std::cout << '.';
-	for (int i=0; i<numZero; i++)
-		std::cout << '0';
-	std::cout << 'f' << std::endl;
+	if (i_val == 0 && from == 0)
+	{
+		std::cout << "float: 0.0f" << std::endl;
+		return ;
+	}
+
+	if (from == 0)
+		std::cout << "float: " << this->f_val << "f" << std::endl;
+	else
+		std::cout << "float: " << input << "f" << std::endl;
 }
 
-void Converter::print_double(int numZero, bool isDot)
+void Converter::print_double(std::string const &input, int from)
 {
-	std::cout << "double: " << this->d_val;
-	if (isDot == true)
-		std::cout << '.';
-	for (int i=0; i<numZero; i++)
-		std::cout << '0';
-	std::cout << std::endl;
+	if (i_val == 0 && from == 0)
+	{
+		std::cout << "double: 0.0" << std::endl;
+		return ;
+	}
+	if (from == 0)
+		std::cout << "double: " << this->d_val << std::endl;
+	else
+		std::cout << "double: " << input << std::endl;
+}
+
+void Converter::print_char_from_int(int value)
+{
+	if (value <= 127 && value >= 32)
+		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+	else if (value <= CHAR_MAX && value >= CHAR_MIN)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: Impossible" << std::endl; 
+}
+
+void Converter::fromChar(std::string const &input)
+{
+	std::stringstream toInt(input);
+	toInt >> i_val;
+	if (toInt.fail() == true)
+	{
+		std::cout << "convert to char int, plz check your input" << std::endl;
+		return ;
+	}
+	c_val = static_cast<char>(i_val);
+	f_val = static_cast<float>(i_val);
+	d_val = static_cast<double>(i_val);
+	if (i_val >= 32 && i_val <= 127)
+	{
+		std::cout << "char: '" << c_val << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(c_val) << std::endl;
+	}
+	else
+	{
+		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "int: " << static_cast<int>(c_val) << std::endl;
+	}
+	print_float(input, 0);
+	print_double(input, 0);
+}
+
+void Converter::fromInt(std::string const &input)
+{
+	std::stringstream toInt(input);
+	toInt >> i_val;
+	if (toInt.fail() == true)
+	{
+		std::cout << "convert to int is fail, plz check your input" << std::endl;
+		return ;
+	}
+	c_val = static_cast<char>(i_val);
+	f_val = static_cast<float>(i_val);
+	d_val = static_cast<double>(i_val);
+	std::cout << "char: Impossible" << std::endl;
+	std::cout << "int: " << i_val << std::endl;
+	print_float(input, 0);
+	print_double(input, 0);
+}
+
+void Converter::fromFloat(std::string const &input)
+{
+	std::stringstream toFloat(input);
+	toFloat >> f_val;
+	if (toFloat.fail() == true)
+	{
+		std::cout << "convert to float is fail, plz check your input" << std::endl;
+		return ;
+	}
+
+	if (f_val <= INT_MAX && f_val >= INT_MIN)
+	{
+		i_val = static_cast<int>(f_val);
+		print_char_from_int(i_val);
+		std::cout << "int: " << i_val << std::endl;
+	}
+	else
+	{
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
+	}
+	print_float(input, 1);
+	d_val = static_cast<double>(f_val);
+	print_double(input, 1);
+}
+
+void Converter::fromDouble(std::string const &input)
+{	
+	std::stringstream toDouble(input);
+	toDouble >> d_val;
+	if (toDouble.fail() == true)
+	{
+		std::cout << "convert to double is fail, plz check your input" << std::endl;
+		return ;
+	}
+
+	if (d_val <= INT_MAX && d_val >= INT_MIN)
+	{
+		i_val = static_cast<int>(d_val);
+		print_char_from_int(i_val);
+		std::cout << "int: " << i_val << std::endl;
+	}
+	else
+	{
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
+	}
+	f_val = static_cast<double>(d_val);
+	print_float(input, 2);
+	print_double(input, 2);
 }
 
 void Converter::convert(std::string input)
 {
-	int numZero = 0;
-	bool isDot = false;
-
     if (this->input_checker(input.c_str()) == false)
     {
         std::cout << "plz check your input" << std::endl;
@@ -173,68 +283,32 @@ void Converter::convert(std::string input)
 	else
 	{
 		if (finder(input, "f") == true)
+		{
 			input.replace(input.find("f"), 1, "");
-		std::stringstream toFloat(input);
-		toFloat >> this->f_val;
-		if (toFloat.fail() == true)
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: impossible" << std::endl;
-			std::cout << "double: impossible" << std::endl;
-			return ;
+			return (fromFloat(input));
 		}
-		std::cout << std::setprecision(input.length());
-
-		for (int i=input.length() - 1; i>0; i--)
-		{
-			if (input[i] == '0')
-				numZero++;
-			else
-			{
-				if (input[i] == '.')
-					isDot = true;
-				break ;
-			}
-		}
-
-		this->d_val = static_cast<double>(this->f_val);
-		if (d_val > INT_MAX || d_val < INT_MIN)
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			print_float(numZero, isDot);
-			print_double(numZero, isDot);
-			return ;
-		}
+		else if (finder(input, ".") == true)
+			return (fromDouble(input));
 		else
 		{
-			if (d_val == 0)
-			{
-				std::cout << "char: Non displayable" << std::endl;
-				std::cout << "int: 0" << std::endl;
-				std::cout << "float: 0.0f" << std::endl;
-				std::cout << "double: 0.0" << std::endl;
-				return ;
-			}
-
-			this->i_val = static_cast<int>(this->f_val);
-			if (i_val < 32 || i_val > 126)
-			{
-				std::cout << "char: Non displayable" << std::endl;
-				std::cout << "int: " << this->i_val << std::endl;
-				print_float(numZero, isDot);
-				print_double(numZero, isDot);
-				return ;
-			}
+			if (input.length() > 10)
+				return (fromDouble(input));
 			else
 			{
-				this->c_val = static_cast<char>(this->i_val);
-				std::cout << "char: '" << this->c_val << "'" << std::endl;
-				std::cout << "int: " << this->i_val << std::endl;
-				print_float(numZero, isDot);
-				print_double(numZero, isDot);
-				return ;
+				long long int tempLL;
+				std::stringstream toLL(input);
+				toLL >> tempLL;
+				if (toLL.fail() == true)
+				{
+					std::cout << "convert to longlong is fail, plz check your input" << std::endl;
+					return ;
+				}
+				if (tempLL <= CHAR_MAX && tempLL >= CHAR_MIN)
+					return (fromChar(input));
+				else if (tempLL <= INT_MAX && tempLL >= INT_MIN)
+					return (fromInt(input));
+				else
+					return (fromDouble(input));
 			}
 		}
 	}
