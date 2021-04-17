@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 21:06:53 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/17 17:20:41 by honlee           ###   ########seoul.kr  */
+/*   Updated: 2021/04/17 18:05:52 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,16 @@ bool		Converter::input_checker(const char *str)
 			if (c == 'f')
 			{
 				if (f_flag == false)
+				{
+					if (dot_flag == true)
+					{
+						if (dot_next_flag == true)
+							f_flag = true;
+						else
+							return (false);
+					}
 					f_flag = true;
+				}
 				else
 					return (false);
 			}
@@ -65,6 +74,8 @@ bool		Converter::input_checker(const char *str)
 						dot_next_flag = true;
 			}
 		}
+		if (f_flag == true && sstr[sstr.length() - 1] != 'f')
+			return (false);
 		return (true);
 	}
 }
@@ -163,7 +174,6 @@ void Converter::convert(std::string input)
 	{
 		if (finder(input, "f") == true)
 			input.replace(input.find("f"), 1, "");
-
 		std::stringstream toFloat(input);
 		toFloat >> this->f_val;
 		if (toFloat.fail() == true)
@@ -174,7 +184,8 @@ void Converter::convert(std::string input)
 			std::cout << "double: impossible" << std::endl;
 			return ;
 		}
-		
+		std::cout << std::setprecision(input.length());
+
 		for (int i=input.length() - 1; i>0; i--)
 		{
 			if (input[i] == '0')
