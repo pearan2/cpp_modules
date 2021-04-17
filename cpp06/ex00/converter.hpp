@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 22:22:54 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/15 20:25:25 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/17 17:15:29 by honlee           ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <sstream>
 # include <math.h>
+# include <iomanip>
 
 class Converter
 {
@@ -26,14 +27,17 @@ class Converter
 		float			f_val;
 		double			d_val;
 		
-		Converter();
-		void MakeOthersFromInt();
-		void MakeOthersFromFloat();
-		void MakeOthersFromDouble();
+		bool input_checker(const char *str);
+		bool finder(std::string const &input, const char *str);
+		void print_float(int numZero, bool isDot);
+		void print_double(int numZero, bool isDot);
+	
 	public	:
-		Converter(std::string const &input);
+		Converter();
 		Converter(Converter const &origin);
 		Converter& operator=(Converter const &origin);
+		void convert(std::string input);
+		virtual ~Converter();
 };
 
 std::ostream &operator<<(std::ostream &out, Converter const &conv);

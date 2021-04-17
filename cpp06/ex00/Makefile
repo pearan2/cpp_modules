@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: honlee <honlee@student.42.fr>              +#+  +:+       +#+         #
+#    By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 21:20:00 by honlee            #+#    #+#              #
-#    Updated: 2021/04/15 22:36:25 by honlee           ###   ########.fr        #
+#    Updated: 2021/04/17 16:47:33 by honlee           ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=		\
 					main.cpp\
+					converter.cpp\
 
 NAME		=		convert
 
