@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:10:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/19 16:17:18 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 20:42:25 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ int		main()
 {
 	int arr[] = {0, 1, 2, 3, 4};
 	Awesome awesomes[5];
+	std::string arr_str[] = {
+						"one",
+						"two",
+						"three"
+					 };
 
+	::iter(arr_str, 3, print);
 	::iter(arr, 5 , print);
 	::iter(awesomes, 5 , print);
 }
