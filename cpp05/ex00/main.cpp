@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 23:34:39 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 23:49:51 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 10:45:05 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	Bureaucrat francis("Francis", 100);
+	Bureaucrat francis("Francis", 3);
 	std::cout << francis << std::endl;
 	francis.incrementGrade();
 	std::cout << francis << std::endl;
@@ -73,5 +73,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << "========== set 150 and dec test end ======" << std::endl;
+
+
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 18:29:00 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/17 18:56:20 by honlee           ###   ########seoul.kr  */
+/*   Updated: 2021/04/19 17:49:30 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void * serialize_with_show(void)
 {
     char *ret;
 
-    ret = new char[20];
+    ret = new char[24];
     
     std::cout << "s1 : ";
     for (int i=0; i<8; i++)
@@ -48,7 +48,7 @@ void * serialize(void)
 {
     char *ret;
 
-    ret = new char[20];
+    ret = new char[24];
     for (int i=0; i<8; i++)
         ret[i] = DATA_SOURCE[rand() % 62];
 

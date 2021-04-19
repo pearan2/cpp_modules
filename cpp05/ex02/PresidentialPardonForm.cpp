@@ -6,16 +6,11 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 18:19:24 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 22:20:24 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 12:43:36 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-PresidentialPardonForm::PresidentialPardonForm(std::string const &name, std::string const &target) : Form(name, 25, 5)
-{
-	this->setTarget(target);
-}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("PresidentialPardonForm default", 25, 5)
 {

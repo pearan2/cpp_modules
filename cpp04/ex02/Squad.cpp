@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 22:48:43 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 17:19:02 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 09:42:34 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@ Squad::Squad()
 
 Squad::Squad(const Squad& origin)
 {
+	std::cout << "copy constructor called" << std::endl;
+
 	this->count = 0;
+	this->marines = NULL;
 	for(int i=0; i<origin.count; i++)
 		this->push(origin.marines[i]->clone());
 }
 
 Squad& Squad::operator=(const Squad& origin)
 {
+	std::cout << "operator= called" << std::endl;
+
 	if (this->marines != NULL)
 	{
 		for (int i=0; i<this->count; i++)

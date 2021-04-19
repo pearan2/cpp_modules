@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 23:01:16 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 04:47:03 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 14:59:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Bureaucrat
 {
 	private :
 		Bureaucrat();
-		std::string  name;
+		const std::string name;
 		unsigned int grade;
-	
+
 	public :
 		Bureaucrat(std::string const &name, unsigned int grade);
 		Bureaucrat(Bureaucrat const &origin);

@@ -5,26 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/17 18:19:15 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/19 14:10:45 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/19 16:10:51 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/19 16:17:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "data.hpp"
+#include "iter.hpp"
+#include <string>
+#include <iostream>
 
-int     main()
+class Awesome
 {
-    srand(clock());
-    // void *temp = serialize();
-    // Data *d = deserialize(temp);
-   
-    void *temp = serialize_with_show();
-    Data *d = deserialize(temp);
+	public :
+		Awesome(void) : _n(42) {return ;}
+		int get(void) const {return this->_n;}
+	private :
+		int _n;
+};
 
-    std::cout << "d->s1 : " << d->s1 << std::endl;
-    std::cout << "d->n  : " << d->n << std::endl;
-    std::cout << "d->s2 : " << d->s2 << std::endl;
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) 
+{ 
+	o << rhs.get(); 
+	return o;
+}
 
-    delete (d);
-    delete (reinterpret_cast<char *>(temp));
+template< typename T >
+void print( T const & x ) 
+{ 
+	std::cout << x << std::endl; 
+	return; 
+}
+
+int		main()
+{
+	int arr[] = {0, 1, 2, 3, 4};
+	Awesome awesomes[5];
+
+	::iter(arr, 5 , print);
+	::iter(awesomes, 5 , print);
 }

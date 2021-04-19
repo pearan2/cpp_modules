@@ -6,18 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 20:46:43 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 22:27:12 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 12:53:02 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &name, std::string const &target) : Form(name, 75, 45)
-{
-	this->setTarget(target);
-}
-
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("RobotomyRequestForm default", 75, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("RobotomyRequestForm default", 72, 45)
 {
 	this->setTarget(target);
 }
@@ -48,4 +43,3 @@ void RobotomyRequestForm::execute(Bureaucrat const &bure) const
 	else
 		std::cout << this->getTarget() << " robotomization is a failure" << std::endl;
 }
-

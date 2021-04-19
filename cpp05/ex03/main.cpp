@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 05:18:43 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 23:44:52 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 13:02:11 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,70 @@
 int main(void)
 {
 	srand(time(NULL));
-	Intern someIntern;
+
+	std::cout << "============== basic signed test ===============" << std::endl;
 
 	Bureaucrat supervisor("Supervisor", 1);
 	std::cout << supervisor << std::endl;
 	Bureaucrat francis("Francis", 25);
 	std::cout << francis << std::endl;
 
-	Form *shrub = someIntern.makeForm("shrubbery creation", "home");
-	std::cout << *shrub << std::endl;
-	shrub->beSigned(supervisor);
-	shrub->execute(francis);
+	Intern intern;
 
-	Form *pres = someIntern.makeForm("presidential pardon", "Francis");
-	std::cout << *pres << std::endl;
-	supervisor.signForm(*pres);
-	pres->execute(supervisor);
+	std::cout << "============== intern basic makeform test ========" << std::endl;
 
-	Form *robot = someIntern.makeForm("robotomy request", "Bender");
-	std::cout << *robot << std::endl;
-	robot->beSigned(supervisor);
-	robot->execute(francis);
-	francis.executeForm(*robot);
-	francis.executeForm(*robot);
+	Form *shrub = intern.makeForm("shrubbery creation","home");
 
-	std::cout << "---" << std::endl;
+	Form *pres = intern.makeForm("presidential pardon","Francis");
+
+	Form *robot = intern.makeForm("robotomy request","Bender");
 
 	try
 	{
-		Form *ran = someIntern.makeForm("random Form", "nobody");
-		std::cout << ran << std::endl;
+		Form *try_form = intern.makeForm("asneiofnaosfn", "honlee");
+		std::cout << *try_form << std::endl;
 	}
-	catch(std::exception const &e)
+	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;;
 	}
+	
+	
+	std::cout << "============== intern basic makeform test ========" << std::endl;
 
-	std::cout << "---" << std::endl;
+	std::cout << "============== basic signed test ==============" << std::endl;
+
+	shrub->beSigned(supervisor);
+	std::cout << *pres << std::endl;
+
+	std::cout << *robot << std::endl;
+	robot->beSigned(supervisor);
+
+	supervisor.signForm(*pres);
+	std::cout << *shrub << std::endl;
+	std::cout << *robot << std::endl;
+
+	std::cout << "============== basic signed test end ===========" << std::endl;
+
+	std::cout << "=============== basic execute test =============" << std::endl;
+
+	robot->execute(supervisor);
+	robot->execute(supervisor);
+	pres->execute(supervisor);
+	pres->execute(supervisor);
+	shrub->execute(supervisor);
+
+	supervisor.executeForm(*robot);
+	supervisor.executeForm(*robot);
+	supervisor.executeForm(*pres);
+	supervisor.executeForm(*pres);
+	supervisor.executeForm(*shrub);
+
+
+	std::cout << "=============== basic execute test end =========" << std::endl;
+
+
+	std::cout << "============= try catch test start ===============" << std::endl;
 
 	try
 	{

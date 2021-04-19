@@ -6,18 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 20:46:43 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 23:12:21 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 12:53:15 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &name, std::string const &target) : Form(name, 75, 45)
-{
-	this->setTarget(target);
-}
-
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("robotomy request", 75, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : Form("robotomy request", 72, 45)
 {
 	this->setTarget(target);
 }

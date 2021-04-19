@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 16:44:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/19 10:06:22 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/19 16:05:36 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/19 16:16:18 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-AMateria::AMateria()
+#include <stdlib.h>
+
+template <typename T>
+void	iter(T *arr, size_t len, void (*fp)(T const &))
 {
-	this->type = "default";
-	this->xp = 0;
+	if (arr == NULL)
+		return ;
+	for (size_t i = 0; i < len; i++)
+		fp(arr[i]);
+	return ;
 }
 
-AMateria::AMateria(std::string const &type)
-{
-	this->type = type;
-	this->xp = 0;
-}
-
-AMateria::~AMateria()
-{
-	
-}
-
-std::string const &AMateria::getType() const
-{
-	return (this->type);
-}
-
-unsigned int AMateria::getXP() const
-{
-	return (this->xp);
-}
-
-void	AMateria::use(ICharacter &target)
-{
-	(void)target;
-	this->xp += 10;
-}
+#endif

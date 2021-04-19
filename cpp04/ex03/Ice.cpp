@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 20:49:47 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/13 21:22:52 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 10:23:22 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Ice::Ice()
 
 Ice::Ice(Ice const &origin)
 {
+	std::cout << "Ice copy constructor called" << std::endl;
 	this->type = "ice";
 	this->xp = origin.xp;
 }
@@ -30,6 +31,7 @@ Ice::~Ice()
 
 Ice& Ice::operator=(Ice const &origin)
 {
+	std::cout << "Ice operator= called" << std::endl;
 	this->xp = origin.xp;
 	this->type = origin.type;
 	return (*this);

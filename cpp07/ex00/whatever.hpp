@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/13 16:44:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/19 10:06:22 by honlee           ###   ########.fr       */
+/*   Created: 2021/04/19 14:11:59 by honlee            #+#    #+#             */
+/*   Updated: 2021/04/19 15:42:13 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#ifndef WHAREVER_HPP
+# define WHAREVER_HPP
 
-AMateria::AMateria()
+template <typename T>
+void	swap(T& t1, T& t2)
 {
-	this->type = "default";
-	this->xp = 0;
+	T temp = t1;
+	t1 = t2;
+	t2 = temp;
 }
 
-AMateria::AMateria(std::string const &type)
+template <typename T>
+T&		min(T& t1, T& t2)
 {
-	this->type = type;
-	this->xp = 0;
+	if (t1 < t2)
+		return (t1);
+	return (t2);
 }
 
-AMateria::~AMateria()
+template <typename T>
+T&		max(T& t1, T& t2)
 {
-	
+	if (t1 > t2)
+		return (t1);
+	return (t2);
 }
 
-std::string const &AMateria::getType() const
-{
-	return (this->type);
-}
-
-unsigned int AMateria::getXP() const
-{
-	return (this->xp);
-}
-
-void	AMateria::use(ICharacter &target)
-{
-	(void)target;
-	this->xp += 10;
-}
+#endif

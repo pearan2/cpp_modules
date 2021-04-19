@@ -63,6 +63,12 @@
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"utility": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"__errc": "cpp",
+		"__locale": "cpp",
+		"__mutex_base": "cpp",
+		"__threading_support": "cpp",
+		"cstring": "cpp",
+		"mutex": "cpp"
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: honlee <honlee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/17 18:25:28 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/17 18:56:33 by honlee           ###   ########seoul.kr  */
+/*   Updated: 2021/04/19 14:03:33 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@
 
 # define DATA_SOURCE "0123456789abcdefghijklmopqrstuvxyzABCDEFGHIJKLMOPQRSTUVXYZ"
 
+
+# pragma pack(push, 1)
 struct Data
 {
 	std::string s1;
 	int n;
 	std::string s2;
 };
+# pragma pack(pop)
 
 void * serialize(void);
 void * serialize_with_show(void);

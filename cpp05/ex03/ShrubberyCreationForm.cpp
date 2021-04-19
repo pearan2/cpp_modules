@@ -6,18 +6,13 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:43:31 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 23:12:39 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 12:16:54 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("shrubbery creation", 145, 137)
-{
-	this->setTarget(target);
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &name, std::string const &target) : Form(name, 145, 137)
 {
 	this->setTarget(target);
 }

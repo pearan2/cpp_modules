@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 17:40:51 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 22:02:43 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 12:16:44 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class ShrubberyCreationForm : public Form
 		static std::string const trees[3];
 	public :
 		ShrubberyCreationForm(std::string const &target);
-		ShrubberyCreationForm(std::string const &name, std::string const &target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &origin);
 		ShrubberyCreationForm& operator=(ShrubberyCreationForm const &origin);
 		virtual ~ShrubberyCreationForm();

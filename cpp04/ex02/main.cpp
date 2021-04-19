@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 23:19:35 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/14 04:43:18 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/19 09:43:27 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,45 @@
 
 #define UNITS	50
 
+void copy_and_oper_test(const Squad &squad)
+{
+	std::cout << "========================= copy and operator= test ======================" << std::endl;
+
+	Squad squad_copy(squad);
+	Squad squad_oper;
+	squad_oper = squad;
+
+	for(int i=0; i<squad_copy.getCount(); i++)
+	{
+		int r = (rand() % 100);
+		std::cout << i << ": ";
+		if (r > 66)
+			squad_copy.getUnit(i)->battleCry();
+		else if (r > 33)
+			squad_copy.getUnit(i)->rangedAttack();
+		else
+			squad_copy.getUnit(i)->meleeAttack();
+	}
+
+	for(int i=0; i<squad_oper.getCount(); i++)
+	{
+		int r = (rand() % 100);
+		std::cout << i << ": ";
+		if (r > 66)
+			squad_oper.getUnit(i)->battleCry();
+		else if (r > 33)
+			squad_oper.getUnit(i)->rangedAttack();
+		else
+			squad_oper.getUnit(i)->meleeAttack();
+	}
+
+	std::cout << "========================= copy and operator= test end ======================" << std::endl;
+}
+
 int main(void)
 {
+	std::cout << "============================ basic test ============================" << std::endl;
+
 	ISpaceMarine* bob = new TacticalMarine;
 	ISpaceMarine* jim = new AssaultTerminator;
 
@@ -31,8 +68,13 @@ int main(void)
 		cur->rangedAttack();
 		cur->meleeAttack();
 	}
+
 	delete vlc;
 
+
+	std::cout << "============================ basic test end =======================" << std::endl;
+
+	std::cout << "============================ basic input test =====================" << std::endl; 
 
 	Squad squad;
 
@@ -56,6 +98,10 @@ int main(void)
 		else
 			squad.getUnit(i)->meleeAttack();
 	}
+	std::cout << "============================ basic input test end =====================" << std::endl; 
+
+	std::cout << "======================== exception handling test ========================" << std::endl;
+
 	std::cout << squad.getCount() << " -> " << squad.push(NULL) << std::endl;
 	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS - 1)) << std::endl;
 	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS)) << std::endl;
@@ -79,7 +125,25 @@ int main(void)
 	AssaultTerminator aes = *static_cast<AssaultTerminator*>(squad.getUnit(1));
 	aes = *static_cast<AssaultTerminator*>(squad.getUnit(1));
 
-	std::cout << "return \n";
+	
+	std::cout << "======================== exception handling test end====================" << std::endl;
+	
+
+	copy_and_oper_test(squad);
+
+	for (int i = 0; i < squad.getCount(); i++)
+	{
+		int r = (rand() % 100);
+		std::cout << i << ": ";
+		if (r > 66)
+			squad.getUnit(i)->battleCry();
+		else if (r > 33)
+			squad.getUnit(i)->rangedAttack();
+		else
+			squad.getUnit(i)->meleeAttack();
+	}
+
+	std::cout << "=========================== return ===============================" << std::endl;
 
 	return (0);
 }
