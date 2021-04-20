@@ -6,7 +6,7 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 10:23:49 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/20 15:21:49 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/20 21:06:29 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ class Span
 		~Span();
 		
 		void addNumber(unsigned int n);
+
+		template<typename T>
+		void addNumber(T begin, T end);
+
 		unsigned int shortestSpan(void) const;
 		unsigned int longestSpan(void) const;
 		unsigned int size(void) const;
@@ -50,5 +54,7 @@ class Span
 			virtual const char * what() const throw();
 		};
 };
+
+# include "span.ipp"
 
 #endif

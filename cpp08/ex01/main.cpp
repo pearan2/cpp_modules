@@ -6,11 +6,12 @@
 /*   By: honlee <honlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:02:35 by honlee            #+#    #+#             */
-/*   Updated: 2021/04/20 15:54:11 by honlee           ###   ########.fr       */
+/*   Updated: 2021/04/20 22:09:29 by honlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
+#include <vector>
 
 # define SPAN_MAX 100000
 # define SPAN_MAX2 200000
@@ -113,4 +114,32 @@ int main()
 	}
 
 	std::cout << "======================== already exits test end====================" << std::endl;
+
+	std::cout << "======================== addNumber with iter test ====================" << std::endl;
+
+	Span sp_add_with_num(10);
+	std::vector<int> vec(10);
+	for(int i=0; i<10; i++)
+		vec[i] = i * 2;
+	sp_add_with_num.addNumber(vec.begin(), vec.end());
+	
+	std::cout << sp_add_with_num.shortestSpan() << std::endl;
+	std::cout << sp_add_with_num.longestSpan() << std::endl;
+
+	std::cout << "======================== addNumber with iter test end ================" << std::endl;
+
+	std::cout << "======================== addNumber with iter error test ====================" << std::endl;
+
+	try
+	{
+		Span sp_temp(9);
+		sp_temp.addNumber(vec.begin(), vec.end());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "======================== addNumber with iter error test ====================" << std::endl;
+
 }
